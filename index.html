@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Coucou les copains</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            html,
+            body {
+                height: 100%;
+                margin: 0;
+                background-color: #0e0e12;
+                color: #eaeaf0;
+                font-family: "Courier New", Courier, monospace;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .container {
+                text-align: center;
+            }
+
+            h1 {
+                margin-bottom: 24px;
+                font-size: 32px;
+                letter-spacing: 1px;
+            }
+
+            .ascii {
+                white-space: pre;
+                font-size: 18px;
+                line-height: 1.1;
+            }
+
+            .frame {
+                display: none;
+            }
+
+            .frame.active {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>coucou les copains</h1>
+
+            <div class="ascii">
+                <div class="frame active">
+                    o/
+                   /|
+                   / \
+                </div>
+                <div class="frame">
+                    \o
+                     |\
+                    / \
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let current_frame = 0;
+            const frames = document.querySelectorAll(".frame");
+
+            setInterval(() => {
+                frames[current_frame].classList.remove("active");
+                current_frame = (current_frame + 1) % frames.length;
+                frames[current_frame].classList.add("active");
+            }, 500);
+        </script>
+    </body>
+</html>
